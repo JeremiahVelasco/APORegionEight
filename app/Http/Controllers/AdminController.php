@@ -32,6 +32,7 @@ class AdminController extends Controller
 
     public function adminchapters(Request $request)
     {
+
         $chapters = DB::table('chapters')
             ->get();
 

@@ -63,15 +63,34 @@
         <div class="chapter-container">
             @foreach($chapters as $chapter)
             <div class="chapter-card">
-                <h1>{{$chapter -> logo}}</h1>
+                <img src="APO SEAL.png" alt="">
                 <h1><span>Chapter Name:</span> {{$chapter -> name}}</h1>
                 <br></br>
                 <h2><span>Chapter Address:</span> {{$chapter -> address}}</h2>
+                <h2><span>Current Members:</span> </h2>
                 <br></br>
                 <h3><span>Has Paid:</span> {{$chapter -> paid}}</h3>
-                <button type="button">Edit</button>
+                <button id="editBtn" data-chapterId="{{ $chapter -> name }}" type="button">Edit</button>
             </div>
             @endforeach
+        </div>
+        <div class="chapter-modal">
+            <div class="modal-logo">
+                <img src="APO SEAL.png" alt="">
+            </div>
+            <div class="modal-receipt">
+                <p>Date of Receipt:</p>
+                <img src="receipt.PNG" alt="">
+            </div>
+            <form action="/action_page.php">
+                <p>Has Paid:</p>
+                <input type="radio" id="yes" name="paid" value="yes">
+                <label for="html">Yes</label>
+                <input type="radio" id="no" name="paid" value="no">
+                <label for="css">No</label><br>
+                <button id="save" type="submit">Save</button></br>
+                <button id="cancel" type="button">Cancel</button>
+            </form>
         </div>
     </div>
 
@@ -108,5 +127,13 @@
             sidebar.classList.toggle('active');
             content.classList.toggle('active');
         }
+
+
+        let editBtn = document.getElementById('editBtn');
+
+        document.getElementById('cancel').addEventListener('click', function() {
+            // Change the display property of the modal container to 'none'
+            document.querySelector('.chapter-modal').style.display = 'none';
+        });
     </script>
 </body>

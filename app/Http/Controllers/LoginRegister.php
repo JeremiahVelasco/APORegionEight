@@ -59,30 +59,41 @@ class LoginRegister extends Controller
     public function register(Request $request)
     {
         $data = $request->all();
-        $check = $this->create($data);
+        //update memberCount on chapter_table where chapter id = requested chapterid
+        $choosen_chapter = $data['chapter'];
+        $this->updateMemberCount($choosen_chapter);
+        $this->create($data);
         return response()->json(["success" => true]);
+    }
+
+    public function updateMemberCount($chapter)
+    {
+        return DB::table('chapters')
+            ->where('name', $chapter)
+            ->update(['memberCount' => DB::raw('memberCount + 1')]);
     }
 
     public function create(array $data)
     {
         return DB::table('users')
             ->insert([
-                'full_name' => $data['fullname'],
+                'uid' => fake()->numberBetween(00000 - 99999),
+                'fullname' => $data['fullname'],
                 'email' => $data['email'],
-                'password' => $data['password'],
+                'password' => bcrypt($data['password']),
                 'classification' => $data['classification'],
                 'chapter' => $data['chapter'],
-                'initiation_year' => $data['initiation-year'],
-                'batch_name' => bcrypt($data['batch_name']),
-                'baptismal_name' => $data['baptismal-name'],
-                'ritualization_status' => $data['ritualization-status'],
-                'ritualization_year' => $data['ritualization-year'],
-                'ritualization_position' => $data['position-held'],
-                'ritualization_position_year' => $data['position-year'],
-                'alumni_assoc' => $data['alumi-assoc'],
-                'assoc_position' => $data['assoc-position'],
-                'assoc_position_year' => $data['assoc-position-year'],
-                'employment_status' => $data['employment-status'],
+                'initiation_year' => $data['initiation_year'],
+                'batch_name' => $data['batch_name'],
+                'baptismal_name' => $data['baptismal_name'],
+                'ritualization_status' => $data['ritualization_status'],
+                'ritualization_year' => $data['ritualization_year'],
+                'ritualization_position' => $data['ritualization_position'],
+                'ritualization_position_year' => $data['ritualization_position_year'],
+                'alumni_assoc' => $data['alumni_assoc'],
+                'assoc_position' => $data['assoc_position'],
+                'assoc_position_year' => $data['assoc_position_year'],
+                'employment_status' => $data['employment_status'],
                 'profession' => $data['profession'],
                 'position' => $data['position'],
             ]);

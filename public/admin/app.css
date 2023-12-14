@@ -268,13 +268,26 @@ tbody td img {
 }
 
 .chapter-card {
-    background: #f4f4f4;
+    background: #aeaeae;
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.3);
     text-align: center;
     width: 20%;
     padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.chapter-card h1, .chapter-card h2, .chapter-card h3 {
+    color: #fff;
+}
+
+.chapter-card img {
+    height: 80px;
+    width: 80px;
 }
 
 span {
@@ -295,4 +308,81 @@ span {
 
 .chapter-card button:hover {
     background: #0e15e0;
+}
+
+.chapter-modal {
+    position: absolute;
+    text-align: center;
+    padding: 3rem;
+    height: 800px;
+    width: 600px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: rgba(255, 255, 255, 0.864);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.modal-logo {
+    display: flex;
+    justify-content: center;
+}
+
+.modal-logo img {
+    height: 100px;
+    width: 100px;
+}
+
+.modal-receipt {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-receipt img {
+    height: 350px;
+    width: 200px;
+}
+
+.chapter-modal p {
+    font-size: 22px;
+    font-weight: 500;
+    padding: 1rem .5rem 0;
+}
+
+.chapter-modal label {
+    font-size: 22px;
+}
+
+.chapter-modal #save {
+    margin-top: 2rem;
+    font-size: 20px;
+    background: #000482;
+    color: #fff;
+    font-weight: 500;
+    padding: 5px 25px;
+    border-radius: 15px;
+}
+
+.chapter-modal #save:hover {
+    background: #0e15e0;   
+}
+
+.chapter-modal #cancel {
+    margin-top: 2rem;
+    font-size: 20px;
+    background: #9e9e9e;
+    color: #fff;
+    font-weight: 500;
+    padding: 5px 25px;
+    border-radius: 15px;
+}
+
+.chapter-modal #cancel:hover {
+    background: #dfdfdf;
 }
