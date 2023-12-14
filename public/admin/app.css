@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #eeeeee !important;
+    min-height: 100vh;
+    justify-content: center;
+}
+
+#addrecordcontent {
+    color: #fff;
+}
+.admin-img {
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 80px;
+    background-color: #000482;
+    padding: 0.4rem 0.8rem;
+    transition: all .5s ease;
+}
+
+.sidebar.active ~ .main-content {
+    left: 250px;
+    width: calc(100% - 250px);
+}
+
+.sidebar.active {
+    width: 310px;
+}
+
+.sidebar #btn {
+    position: absolute;
+    color: gold;
+    top: .4rem;
+    left: 50%;
+    font-size: 1.2rem;
+    line-height: 50px;
+    transform: translateX(-50%);
+    cursor: pointer; 
+}
+
+.sidebar.active #btn {
+    left: 90%;
+}
+
+.sidebar .top .logo {
+    color: #fff;
+    display: flex;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.sidebar.active .top .logo {
+    opacity: 1;
+}
+
+.logo span {
+    color: #fff;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.user p {
+    color: #fff;
+    opacity: 1;
+    margin-left: 1rem;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.sidebar p {
+    opacity: 0;
+}
+
+.sidebar.active p {
+    opacity: 1;
+}
+
+.sidebar ul li {
+    position: relative;
+    list-style-type: none;
+    height: 50px;
+    width: 90%;
+    margin: .8rem auto;
+    line-height: 50px;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: .8rem;
+}
+
+.sidebar ul li a:hover {
+    background-color: #fff;
+    color: #12171e;
+}
+
+.sidebar ul li a:hover .nav-item {
+    color: #12171e;
+}
+
+.sidebar ul li a i {
+    min-width: 50px;
+    text-align: center;
+    height: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+}
+
+.sidebar .nav-item {
+    opacity: 0;
+    color: #fff;
+}
+
+.sidebar.active .nav-item {
+    opacity: 1;
+}
+
+.main-content {
+    position: absolute;
+    min-height: 100vh;
+    top: 0;
+    left: 80px;
+    transition: all .5 ease;
+    width: calc(100% - 80px);
+    padding: 1rem;
+    background: #e3e3e3;
+}
+
+.main-content.active {
+    transform: translateX(3rem);
+    overflow-x: scroll;
+}
+
+form {
+    position: relative;
+}
+
+form input {
+    color: #000;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#searchBtn {
+    background: #000482;
+    color: #fff;
+}
+
+td {
+    padding: 10px 10px;
+}
+
+thead {
+    height: 60px;
+    width: 10%;
+    padding: 1rem 1rem;
+}
+
+table {
+    width: 95%;
+    max-height: calc(89% - 1.6rem);
+    background-color: #fffb;
+    margin: .8rem auto;
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #000482;
+    color: #fff;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #0011f918;
+}
+
+tbody tr:hover {
+    background-color: #fff6;
+}
+
+tbody td img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+#delete-btn:hover {
+    background-color: #e60b0b !important;
+}
+
+/*ADMINDASHBOARD*/
+.total-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 45px;
+}
+
+.total-card {
+    height: 300px;
+    width: 600px;    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.331);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.total-card i {
+    font-size: 82px;
+    color: #000482;
+}
+
+.total-card h1 {
+    font-size: 32px;
+}
+
+/*ADMINCHAPTERS*/
+#chapter-content, #dashboard-content {
+    background: url('/APO SEAL.png') no-repeat;
+    background-position: center;
+}
+.chapter-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.chapter-title {
+    text-align: center;
+    font-size: 42px;
+    font-weight: 500;
+    color: #000482;
+    padding: 25px 0;
+}
+
+.chapter-card {
+    background: #f4f4f4;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    text-align: center;
+    width: 20%;
+    padding: 15px;
+}
+
+span {
+    color: #000482;
+    font-weight: 700;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.chapter-card button {
+    background: #000482;
+    color: #fff;
+    font-weight: 500;
+    padding: 5px 25px;
+    border-radius: 15px;
+    margin: 10px 0;
+}
+
+.chapter-card button:hover {
+    background: #0e15e0;
+}
