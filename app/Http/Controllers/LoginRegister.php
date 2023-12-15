@@ -20,9 +20,10 @@ class LoginRegister extends Controller
     public function login(Request $request)
     {
         $credentials = $request->validate([
-            'studentid' => ['required'],
+            'email' => ['required'],
             'password' => ['required'],
         ]);
+        /*
         if (Auth::guard('admins')->attempt($credentials)) {
             $admin = Auth::guard('admins')->user();
             $request->session()->put('adminsuccess', true);
@@ -30,7 +31,7 @@ class LoginRegister extends Controller
                 "success" => true,
                 "role" => "admin"
             ]);
-        }
+        }*/
         if (Auth::attempt($credentials)) {
 
             $user = Auth::user(); // Get the authenticated user
@@ -41,6 +42,12 @@ class LoginRegister extends Controller
             ]);
         }
         return response()->json(["success" => false]);
+    }
+
+    public function logout()
+    {
+        Session::forget('success');
+        return redirect('/');
     }
 
     public function emailExists(Request $request)

@@ -24,7 +24,7 @@
                 <li><a href="/home"><i class="fa-solid fa-house"></i> Home</a></li>
                 <li><a href="/directory"><i class="fa-solid fa-address-book"></i> Alumni Directory</a></li>
                 <li><a href="/profile"><i class="fa-solid fa-user"></i> My Profile</a></li>
-                <li><a href="#" id="logout"><i class="fa-solid fa-right-from-bracket"></i> Log Out</a></li>
+                <li><a href="/logout" id="logout"><i class="fa-solid fa-right-from-bracket"></i> Log Out</a></li>
             </ul>
         </nav>
 

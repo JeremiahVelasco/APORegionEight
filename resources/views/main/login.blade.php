@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="/main/loginregister.css">
     <title>Alpha Phi Omega - Region 8</title>
     <link rel="icon" href="APO SEAL.png">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body>
@@ -25,6 +27,7 @@
 
     <!--SCRIPTS-->
     <script>
+        /*
         //*******************************Student Id Listeners and Functions*********************************************************
 
         const email = document.querySelector("#email");
@@ -64,8 +67,10 @@
                 checkProfile(field);
             }
         }
+        */
         //*******************************Form Listeners and Functions***************************************************************
         function checkProfile(field) {
+            var csrfHeader = $('meta[name="csrf-token"]').attr("content");
             $.ajax({
                 type: "POST",
                 url: "/login",
@@ -73,14 +78,19 @@
                     'email': field.email,
                     'password': field.password
                 },
+                headers: {
+                    'X-CSRF-TOKEN': csrfHeader
+                },
                 success: function(response) {
                     if (response.success) {
                         console.log(response.data);
+                        window.location.href = "/home";
+                        /*
                         if (response.role === "admin") {
                             window.location.href = "/admindashboard";
                         } else {
                             window.location.href = "/home";
-                        }
+                        }*/
                     } else {
                         $("#error").text("Incorrect Credentials!");
                     }
@@ -98,7 +108,7 @@
             };
             field.email = $("#email").val();
             field.password = $("#password").val();
-            formHandler(field);
+            checkProfile(field);
         });
     </script>
 </body>

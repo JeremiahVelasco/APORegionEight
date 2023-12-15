@@ -37,7 +37,7 @@ return [
 
     'guards' => [
         'web' => [
-            'driver' => 'firebase',
+            'driver' => 'session',
             'provider' => 'users',
         ],
 

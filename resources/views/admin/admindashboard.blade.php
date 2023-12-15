@@ -64,7 +64,7 @@
             <div class="total-card">
                 <i class="fa-solid fa-users"></i>
                 <br></br>
-                <h1><span>Total Registered Alumni:</span> <strong>{{ $totalUsers }}</strong></h1>
+                <h1><span>Total Registered Users:</span> <strong>{{ $totalUsers }}</strong></h1>
             </div>
             <div class="total-card">
                 <i class="fa-solid fa-house-user"></i>

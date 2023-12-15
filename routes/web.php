@@ -26,6 +26,8 @@ Route::get('/profile', function () {
 
 Route::get('/registerpage', [LoginRegister::class, 'registerpage']);
 Route::post('/register', [LoginRegister::class, 'register']);
+Route::post('/login', [LoginRegister::class, 'login']);
+Route::get('/logout', [LoginRegister::class, 'logout']);
 
 
 Route::get('/home', function () {

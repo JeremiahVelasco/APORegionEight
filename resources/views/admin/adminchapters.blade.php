@@ -67,7 +67,7 @@
                 <h1><span>Chapter Name:</span> {{$chapter -> name}}</h1>
                 <br></br>
                 <h2><span>Chapter Address:</span> {{$chapter -> address}}</h2>
-                <h2><span>Current Members:</span> </h2>
+                <h2><span>Current Members:</span> {{$chapter -> memberCount}} </h2>
                 <br></br>
                 <h3><span>Has Paid:</span> {{$chapter -> paid}}</h3>
                 <button id="editBtn" data-chapterId="{{ $chapter -> name }}" type="button">Edit</button>
